@@ -11,11 +11,13 @@
 
 1. Подготовьте свой inventory-файл `prod.yml`.
 
-docker-compose up -d
+Создаем VM в YC
 
-2. Допишите playbook: нужно сделать ещё один play, который устанавливает и настраивает [vector](https://vector.dev). Конфигурация vector должна деплоиться через template файл jinja2. От вас не требуется использовать все возможности шаблонизатора, просто вставьте стандартный конфиг в template файл. Информация по шаблонам по [ссылке](https://www.dmosk.ru/instruktions.php?object=ansible-nginx-install). не забудьте сделать handler на перезапуск vector в случае изменения конфигурации!
-3. При создании tasks рекомендую использовать модули: `get_url`, `template`, `unarchive`, `file`.
-4. Tasks должны: скачать дистрибутив нужной версии, выполнить распаковку в выбранную директорию, установить vector.
+  https://github.com/DioRoman/ter_vm_dev
+
+3. Допишите playbook: нужно сделать ещё один play, который устанавливает и настраивает [vector](https://vector.dev). Конфигурация vector должна деплоиться через template файл jinja2. От вас не требуется использовать все возможности шаблонизатора, просто вставьте стандартный конфиг в template файл. Информация по шаблонам по [ссылке](https://www.dmosk.ru/instruktions.php?object=ansible-nginx-install). не забудьте сделать handler на перезапуск vector в случае изменения конфигурации!
+4. При создании tasks рекомендую использовать модули: `get_url`, `template`, `unarchive`, `file`.
+5. Tasks должны: скачать дистрибутив нужной версии, выполнить распаковку в выбранную директорию, установить vector.
 
   https://github.com/DioRoman/08-ansible-02-playbook/blob/main/playbook/vector.yml
   
@@ -36,3 +38,8 @@ docker-compose up -d
 8. Повторно запустите playbook с флагом `--diff` и убедитесь, что playbook идемпотентен.
 9. Подготовьте README.md-файл по своему playbook. В нём должно быть описано: что делает playbook, какие у него есть параметры и теги. Пример качественной документации ansible playbook по [ссылке](https://github.com/opensearch-project/ansible-playbook). Так же приложите скриншоты выполнения заданий №5-8
 10. Готовый playbook выложите в свой репозиторий, поставьте тег `08-ansible-02-playbook` на фиксирующий коммит, в ответ предоставьте ссылку на него.
+
+![Снимок экрана 2025-07-02 195720](https://github.com/user-attachments/assets/958d492f-10cd-42ce-84f6-5ac6b1b96811)
+
+![Снимок экрана 2025-07-02 195720](https://github.com/user-attachments/assets/e2cfd42c-2dec-4354-81ac-a1a474f2481a)
+
