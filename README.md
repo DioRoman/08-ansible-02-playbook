@@ -11,7 +11,7 @@
 
 1. Подготовьте свой inventory-файл `prod.yml`.
 
-Создаем VM в YC
+  _Создаем VM в YC_
 
   https://github.com/DioRoman/ter_vm_dev
 
