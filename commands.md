@@ -8,6 +8,6 @@ ansible-playbook -i inventory/prod.yml clickhouse.yml --limit "clickhouse"
 
 terraform destroy -auto-approve && terraform apply -auto-approve
 
-ansible-lint site.yml
+ansible-lint clickhouse.yml
 
 sudo truncate -s 0 /var/log/syslog

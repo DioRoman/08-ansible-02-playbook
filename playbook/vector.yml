@@ -1,5 +1,5 @@
 - name: Install and configure Vector
-  hosts: all
+  hosts: vector
   become: true
 
   handlers:
@@ -51,6 +51,12 @@
       ansible.builtin.command: "ls -la /usr/local/bin/vector"
       register: vector_binary_check
       changed_when: false
+
+    - name: Create vector group
+      ansible.builtin.group:
+        name: vector
+        system: true
+        state: present
 
     - name: Create vector user
       ansible.builtin.user:

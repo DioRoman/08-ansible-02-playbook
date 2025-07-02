@@ -2,8 +2,8 @@
 - name: Install Latest ClickHouse
   hosts: clickhouse
   become: true
-  tasks:
 
+  tasks:
     - name: Установка зависимостей
       ansible.builtin.apt:
         name:
@@ -24,14 +24,6 @@
         url: "https://packages.clickhouse.com/rpm/lts/repodata/repomd.xml.key"
         keyring: /usr/share/keyrings/clickhouse-keyring.gpg
 
-    # - name: Download and import ClickHouse GPG key
-    #   ansible.builtin.shell: |
-    #     curl -fsSL 'https://packages.clickhouse.com/rpm/lts/repodata/repomd.xml.key' | gpg --dearmor -o /usr/share/keyrings/clickhouse-keyring.gpg
-    #   args:
-    #     creates: /usr/share/keyrings/clickhouse-keyring.gpg
-    #   register: key_import
-    #   changed_when: "'gpg: keyring' in key_import.stderr"
-
     - name: Verify GPG key permissions
       ansible.builtin.file:
         path: /usr/share/keyrings/clickhouse-keyring.gpg
@@ -43,24 +35,11 @@
         state: directory
         mode: "0755"
 
-    # - name: Добавить репозиторий ClickHouse
-    #   ansible.builtin.copy:
-    #     dest: /etc/apt/sources.list.d/clickhouse.list
-    #     content: "deb [signed-by=/usr/share/keyrings/clickhouse-keyring.gpg arch=amd64] https://packages.clickhouse.com/deb lts main"
-    #     mode: "0644"
-
-    # - name: Add repository using tee
-    #   ansible.builtin.shell: |
-    #     echo "deb [signed-by=/usr/share/keyrings/clickhouse-keyring.gpg arch=amd64] \
-    #     https://packages.clickhouse.com/deb lts main" | \
-    #     tee /etc/apt/sources.list.d
-
     - name: Add ClickHouse repository
       ansible.builtin.copy:
         dest: /etc/apt/sources.list.d/clickhouse.list
         content: |
-          deb [signed-by=/usr/share/keyrings/clickhouse-keyring.gpg arch=amd64]
-          https://packages.clickhouse.com/deb lts main
+          deb [signed-by=/usr/share/keyrings/clickhouse-keyring.gpg] https://packages.clickhouse.com/deb stable main
         mode: "0644"
 
     - name: Update apt package cache
