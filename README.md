@@ -41,5 +41,6 @@
 
 ![Снимок экрана 2025-07-02 195720](https://github.com/user-attachments/assets/958d492f-10cd-42ce-84f6-5ac6b1b96811)
 
-![Снимок экрана 2025-07-02 195720](https://github.com/user-attachments/assets/e2cfd42c-2dec-4354-81ac-a1a474f2481a)
+![Снимок экрана 2025-07-02 195755](https://github.com/user-attachments/assets/2f3269c7-6f50-4d2d-8cc4-ffabad66a3af)
+
 
